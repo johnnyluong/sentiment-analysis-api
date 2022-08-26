@@ -5,6 +5,10 @@ Sentiment Analysis powered by Vader.
 
 A RESTful API built with Python 3.8.10 and Flask-Restful running in a virtual environment hosted on Heroku.
 
-todo:
-- integrate vader sentiment analysis tool
-- refine the post request to process JSON data
+Currently a work in progress ...
+
+TODO:
+
+- Redesign API to be interface for Parley rather than purely for Sentiment Analysis
+- Database CRUD operations
+- User Request Authentication

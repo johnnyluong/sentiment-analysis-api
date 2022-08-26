@@ -7,12 +7,8 @@ api = Api(app)
 
 parser = reqparse.RequestParser()
 parser.add_argument('text', type=str, required=True, help='Content required.',location='form')
-# args = parser.parse_args()
 
 class SentimentAnalysis(Resource):
-    def get(self):
-        return "testing...", 404
-
     def post(self):
         args = parser.parse_args()
         text = args['text']
