@@ -9,17 +9,16 @@ parser = reqparse.RequestParser()
 parser.add_argument('text', type=str, required=True, help='Content required.',location='form')
 
 class SentimentAnalysis(Resource):
+    def get(self):
+      return "This is a Sentiment Analysis API powered by Vader.", 200
+
+
     def post(self):
         args = parser.parse_args()
         text = args['text']
         analyzer = SentimentIntensityAnalyzer()
         vs = analyzer.polarity_scores(text)
-        if vs['neu'] > 0.85:
-          #content was approved -> post to database
-          return vs, 200
-        else:
-          #content rejected -> inform user
-          return "does not meet neutrality requirement", 404
+        return vs, 200
 
 api.add_resource(SentimentAnalysis, "/api/v1/")
 
